@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserClient {
     @RequestLine("GET /{id}")
-    UserDto findById(@Param("id") String id);
+    UserDto findById(@Param("id") int id);
 
     @RequestLine("GET")
     List<UserDto> findAll();
