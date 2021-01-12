@@ -1,30 +1,16 @@
 package org.myapp.taskmanager.service;
 
-import feign.Feign;
-import feign.Logger;
-import feign.gson.GsonDecoder;
-import feign.gson.GsonEncoder;
-import feign.okhttp.OkHttpClient;
-import feign.slf4j.Slf4jLogger;
+import lombok.AllArgsConstructor;
 import org.myapp.taskmanager.client.UserClient;
 import org.myapp.taskmanager.dto.UserDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@AllArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
-    private final UserClient userClient;
-
-    public UserServiceImpl() {
-        userClient = Feign.builder()
-                .client(new OkHttpClient())
-                .encoder(new GsonEncoder())
-                .decoder(new GsonDecoder())
-                .logger(new Slf4jLogger(UserClient.class))
-                .logLevel(Logger.Level.FULL)
-                .target(UserClient.class, "http://localhost:8080/users");
-    }
+    private UserClient userClient;
 
     @Override
     public List<UserDto> getAllUsers() {
