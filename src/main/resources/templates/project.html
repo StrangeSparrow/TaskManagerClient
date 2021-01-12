@@ -11,18 +11,16 @@
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 
-    <h1 class="display-4">Пользователь</h1>
+    <h1 class="display-4">Проект</h1>
 
     <table border="1" align="center" width="40%">
         <tr>
             <th>№</th>
             <th>Имя</th>
-            <th>Права</th>
         </tr>
         <tr>
-            <td th:utext="${user.id}">...</td>
-            <td><a th:href="@{'/users/' + ${user.id}}" th:utext="${user.name}"></a></td>
-            <td th:utext="${user.role}">...</td>
+            <td th:utext="${project.id}">...</td>
+            <td><a th:href="@{'/projects/' + ${project.id}}" th:utext="${project.name}"></a></td>
         </tr>
     </table>
 </div>

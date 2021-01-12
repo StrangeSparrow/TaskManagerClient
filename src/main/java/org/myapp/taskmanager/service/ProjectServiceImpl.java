@@ -23,7 +23,7 @@ public class ProjectServiceImpl implements ProjectService {
                 .decoder(new GsonDecoder())
                 .logger(new Slf4jLogger(ProjectClient.class))
                 .logLevel(Logger.Level.FULL)
-                .target(ProjectClient.class, "http://localhost:8080/tasks");
+                .target(ProjectClient.class, "http://localhost:8080/projects");
     }
 
     @Override
