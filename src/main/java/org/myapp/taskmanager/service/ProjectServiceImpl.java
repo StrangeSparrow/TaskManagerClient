@@ -8,9 +8,11 @@ import feign.okhttp.OkHttpClient;
 import feign.slf4j.Slf4jLogger;
 import org.myapp.taskmanager.client.ProjectClient;
 import org.myapp.taskmanager.dto.ProjectDto;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProjectServiceImpl implements ProjectService {
     private final ProjectClient projectClient;
 
