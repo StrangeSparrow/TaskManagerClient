@@ -21,4 +21,13 @@ public class TaskServiceImpl implements TaskService {
     public TaskDto getTaskById(int id) {
         return taskClient.findById(id);
     }
+
+    @Override
+    public List<TaskDto> getTaskByUserId(int userId) {
+        List<TaskDto> tasks = taskClient.findByExecutor(userId);
+
+        tasks.addAll(taskClient.findByOwner(userId));
+
+        return tasks;
+    }
 }

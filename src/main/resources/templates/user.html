@@ -18,11 +18,26 @@
             <th>№</th>
             <th>Имя</th>
             <th>Права</th>
+            <th>Задачи</th>
         </tr>
         <tr>
-            <td th:utext="${user.id}">...</td>
-            <td><a th:href="@{'/users/' + ${user.id}}" th:utext="${user.name}"></a></td>
+            <td th:utext="${user.id}" align="top">...</td>
+            <td align="top"><a th:href="@{'/users/' + ${user.id}}" th:utext="${user.name}"></a></td>
             <td th:utext="${user.role}">...</td>
+            <td>
+                <table align="center" width="95%">
+                    <tr>
+                        <th>№</th>
+                        <th>Название</th>
+                        <th>Статус</th>
+                    </tr>
+                    <tr th:each ="task : ${tasks}">
+                        <td th:utext="${task.id}">...</td>
+                        <td><a th:href="@{'/tasks/' + ${task.id}}" th:utext="${task.name}"></a></td>
+                        <td th:utext="${task.status}">...</td>
+                    </tr>
+                </table>
+            </td>
         </tr>
     </table>
 </div>

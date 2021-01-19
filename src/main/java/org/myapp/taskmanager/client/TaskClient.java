@@ -12,4 +12,10 @@ public interface TaskClient {
 
     @RequestLine("GET")
     List<TaskDto> findAll();
+
+    @RequestLine("GET/by-executor/{id}")
+    List<TaskDto> findByExecutor(@Param("id") int executorId);
+
+    @RequestLine("GET/by-owner/{id}")
+    List<TaskDto> findByOwner(@Param("id") int ownerId);
 }

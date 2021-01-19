@@ -8,4 +8,6 @@ public interface TaskService {
     List<TaskDto> getAllTasks();
 
     TaskDto getTaskById(int id);
+
+    List<TaskDto> getTaskByUserId(int userId);
 }

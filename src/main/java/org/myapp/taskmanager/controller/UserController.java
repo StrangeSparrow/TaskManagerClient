@@ -1,7 +1,9 @@
 package org.myapp.taskmanager.controller;
 
 import lombok.AllArgsConstructor;
+import org.myapp.taskmanager.dto.TaskDto;
 import org.myapp.taskmanager.dto.UserDto;
+import org.myapp.taskmanager.service.TaskService;
 import org.myapp.taskmanager.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
     private UserService userService;
+    private TaskService taskService;
 
     @GetMapping
     public String getUsers(Model model) {
@@ -29,8 +32,10 @@ public class UserController {
     @GetMapping("/{id}")
     public String getUser(Model model, @PathVariable("id") int id) {
         UserDto user = userService.getUserById(id);
+        List<TaskDto> tasks = taskService.getTaskByUserId(id);
 
         model.addAttribute("user", user);
+        model.addAttribute("tasks", tasks);
 
         return "user";
     }
