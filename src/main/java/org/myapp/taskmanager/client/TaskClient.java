@@ -2,14 +2,14 @@ package org.myapp.taskmanager.client;
 
 import feign.Param;
 import feign.RequestLine;
-import org.myapp.taskmanager.dto.UserDto;
+import org.myapp.taskmanager.dto.TaskDto;
 
 import java.util.List;
 
-public interface UserClient {
+public interface TaskClient {
     @RequestLine("GET /{id}")
-    UserDto findById(@Param("id") int id);
+    TaskDto findById(@Param("id") int id);
 
     @RequestLine("GET")
-    List<UserDto> findAll();
+    List<TaskDto> findAll();
 }
