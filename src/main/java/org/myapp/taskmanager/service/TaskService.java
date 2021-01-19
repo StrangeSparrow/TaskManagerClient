@@ -10,4 +10,6 @@ public interface TaskService {
     TaskDto getTaskById(int id);
 
     List<TaskDto> getTaskByUserId(int userId);
+
+    List<TaskDto> getTaskByProjectId(int projectId);
 }

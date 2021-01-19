@@ -30,4 +30,11 @@ public class TaskServiceImpl implements TaskService {
 
         return tasks;
     }
+
+    @Override
+    public List<TaskDto> getTaskByProjectId(int id) {
+        List<TaskDto> tasks = taskClient.findByProjectId(id);
+
+        return tasks;
+    }
 }

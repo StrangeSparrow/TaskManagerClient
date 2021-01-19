@@ -18,4 +18,7 @@ public interface TaskClient {
 
     @RequestLine("GET/by-owner/{id}")
     List<TaskDto> findByOwner(@Param("id") int ownerId);
+
+    @RequestLine("GET/by-project/{id}")
+    List<TaskDto> findByProjectId(@Param("id") int projectId);
 }
