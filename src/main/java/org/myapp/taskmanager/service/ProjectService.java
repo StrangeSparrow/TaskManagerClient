@@ -8,4 +8,6 @@ public interface ProjectService {
     List<ProjectDto> getAllProjects();
 
     ProjectDto getProjectById(int id);
+
+    ProjectDto getProjectByTaskId(int id);
 }

@@ -12,4 +12,7 @@ public interface ProjectClient {
 
     @RequestLine("GET")
     List<ProjectDto> findAll();
+
+    @RequestLine("GET/by-task/{id}")
+    ProjectDto getProjectByTaskId(@Param("id") int id);
 }

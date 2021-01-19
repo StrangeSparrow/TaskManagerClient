@@ -13,16 +13,22 @@
 
     <h1 class="display-4">Задача</h1>
 
-    <table border="1" align="center" width="40%">
+    <table border="1" align="center" width="60%">
         <tr>
             <th>№</th>
             <th>Имя</th>
             <th>Статус</th>
+            <th>Заказчик</th>
+            <th>Исполнитель</th>
+            <th>Проект</th>
         </tr>
         <tr>
             <td th:utext="${task.id}">...</td>
             <td><a th:href="@{'/tasks/' + ${task.id}}" th:utext="${task.name}"></a></td>
             <td th:utext="${task.status}">...</td>
+            <td><a th:href="@{'/users/' + ${owner.id}}" th:utext="${owner.name}"></a></td>
+            <td><a th:href="@{'/users/' + ${executor.id}}" th:utext="${executor.name}"></a></td>
+            <td><a th:href="@{'/projects/' + ${project.id}}" th:utext="${project.name}"></a></td>
         </tr>
     </table>
 </div>

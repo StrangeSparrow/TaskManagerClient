@@ -21,4 +21,18 @@ public class UserServiceImpl implements UserService {
     public UserDto getUserById(int id) {
         return userClient.findById(id);
     }
+
+    @Override
+    public UserDto getOwnerByTaskId(int id) {
+        UserDto owner = userClient.getOwnerByTaskId(id);
+
+        return owner;
+    }
+
+    @Override
+    public UserDto getExecutorByTaskId(int id) {
+        UserDto executor = userClient.getExecutorByTaskId(id);
+
+        return executor;
+    }
 }

@@ -21,4 +21,11 @@ public class ProjectServiceImpl implements ProjectService {
     public ProjectDto getProjectById(int id) {
         return projectClient.findById(id);
     }
+
+    @Override
+    public ProjectDto getProjectByTaskId(int id) {
+        ProjectDto project = projectClient.getProjectByTaskId(id);
+
+        return project;
+    }
 }

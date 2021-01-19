@@ -8,4 +8,8 @@ public interface UserService {
     List<UserDto> getAllUsers();
 
     UserDto getUserById(int id);
+
+    UserDto getOwnerByTaskId(int id);
+
+    UserDto getExecutorByTaskId(int id);
 }
