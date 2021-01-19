@@ -7,9 +7,7 @@ import org.myapp.taskmanager.service.ProjectService;
 import org.myapp.taskmanager.service.TaskService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,5 +37,22 @@ public class ProjectController {
         model.addAttribute("tasks", tasks);
 
         return "project";
+    }
+
+    @GetMapping("/add")
+    public String formAddProject(Model model) {
+        return "project_add";
+    }
+
+    //TODO
+
+    @PostMapping("/add")
+    public String addProject(@RequestParam("title") String title, Model model) {
+        ProjectDto project = new ProjectDto();
+        project.setName(title);
+
+        projectService.addProject(project);
+
+        return "redirect:/projects";
     }
 }

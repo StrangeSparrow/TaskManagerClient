@@ -1,5 +1,6 @@
 package org.myapp.taskmanager.client;
 
+import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
 import org.myapp.taskmanager.dto.ProjectDto;
@@ -15,4 +16,8 @@ public interface ProjectClient {
 
     @RequestLine("GET/by-task/{id}")
     ProjectDto findProjectByTaskId(@Param("id") int id);
+
+    @RequestLine("POST")
+    @Headers("Content-Type: application/json")
+    void addProject(ProjectDto project);
 }

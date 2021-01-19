@@ -10,4 +10,6 @@ public interface ProjectService {
     ProjectDto getProjectById(int id);
 
     ProjectDto getProjectByTaskId(int id);
+
+    void addProject(ProjectDto project);
 }

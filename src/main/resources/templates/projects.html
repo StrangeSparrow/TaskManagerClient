@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>Менеджер задач</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -23,6 +23,11 @@
             <td><a th:href="@{'/projects/' + ${p.id}}" th:utext="${p.name}"></a></td>
         </tr>
     </table>
+
+    <br>
+
+    <a href="/projects/add">Добавить проект</a>
+
 </div>
 
 <div th:insert="blocks/footer :: footer"></div>

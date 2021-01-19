@@ -28,4 +28,9 @@ public class ProjectServiceImpl implements ProjectService {
 
         return project;
     }
+
+    @Override
+    public void addProject(ProjectDto project) {
+        projectClient.addProject(project);
+    }
 }
