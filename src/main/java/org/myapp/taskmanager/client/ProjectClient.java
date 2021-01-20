@@ -20,4 +20,7 @@ public interface ProjectClient {
     @RequestLine("POST")
     @Headers("Content-Type: application/json")
     void addProject(ProjectDto project);
+
+    @RequestLine("DELETE/{id}")
+    void deleteById(@Param("id") int id);
 }

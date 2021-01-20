@@ -47,11 +47,18 @@ public class ProjectController {
     //TODO
 
     @PostMapping("/add")
-    public String addProject(@RequestParam("title") String title, Model model) {
+    public String addProject(@RequestParam("name") String name, Model model) {
         ProjectDto project = new ProjectDto();
-        project.setName(title);
+        project.setName(name);
 
         projectService.addProject(project);
+
+        return "redirect:/projects";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String deleteProject(@PathVariable("id") int id) {
+        projectService.deleteById(id);
 
         return "redirect:/projects";
     }

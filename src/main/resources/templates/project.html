@@ -38,6 +38,10 @@
             </td>
         </tr>
     </table>
+
+    <br>
+
+    <a th:href="@{'/projects/' + ${project.id} + '/delete'}">Удалить проект</a>
 </div>
 
 <div th:insert="blocks/footer :: footer"></div>
