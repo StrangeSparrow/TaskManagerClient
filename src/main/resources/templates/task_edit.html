@@ -19,15 +19,15 @@
         <label for="status">Статус </label><input type="text" name="status" id="status" th:value="${task.status}" class="form-control">
         <label for="owner">Заказчик </label><br>
         <select id="owner" name="owner" style="width:200px">
-            <option th:each="o : ${owners}" th:value="${o.id}" th:text="${o.name}"></option>
+            <option th:each="o : ${owners}" th:value="${o.id}" th:text="${o.name}" th:selected="${o.id==task.owner}"></option>
         </select><br>
         <label for="executor">Исполнитель </label><br>
         <select id="executor" name="executor" style="width:200px">
-            <option th:each="e : ${executors}" th:value="${e.id}" th:text="${e.name}"></option>
+            <option th:each="e : ${executors}" th:value="${e.id}" th:text="${e.name}" th:selected="${e.id==task.executor}"></option>
         </select><br>
         <label for="project">Проект </label><br>
         <select id="project" name="project" style="width:200px">
-            <option th:each="p : ${projects}" th:value="${p.id}" th:text="${p.name}"></option>
+            <option th:each="p : ${projects}" th:value="${p.id}" th:text="${p.name}" th:selected="${p.id==task.project}"></option>
         </select><br>
 
         <br>
