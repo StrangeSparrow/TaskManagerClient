@@ -16,4 +16,6 @@ public interface TaskService {
     void addProject(TaskDto task);
 
     void deleteById(int id);
+
+    void updateTask(TaskDto task);
 }

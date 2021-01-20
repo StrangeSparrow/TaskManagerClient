@@ -55,9 +55,7 @@ public class TaskController {
 
     @PostMapping("/add")
     public String addProject(@RequestParam("name") String name, Model model) {
-        TaskDto task = new TaskDto();
-        task.setName(name);
-        task.setStatus("start");
+        TaskDto task = TaskDto.builder().name(name).status("start").build();
 
         taskService.addProject(task);
 
@@ -69,5 +67,31 @@ public class TaskController {
         taskService.deleteById(id);
 
         return "redirect:/tasks";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String formEditProject(@PathVariable("id") int id, Model model) {
+        TaskDto task = taskService.getTaskById(id);
+
+        List<UserDto> owners = userService.getOwners();
+        List<UserDto> executors = userService.getExecutors();
+
+        List<ProjectDto> projects = projectService.getAllProjects();
+
+        model.addAttribute("task", task);
+        model.addAttribute("owners", owners);
+        model.addAttribute("executors", executors);
+        model.addAttribute("projects", projects);
+
+        return "task_edit";
+    }
+
+    @PostMapping("/edit")
+    public String editProject(@RequestParam int id, @RequestParam String name, @RequestParam String status) {
+        TaskDto task = TaskDto.builder().id(id).name(name).status(status).build();
+
+        taskService.updateTask(task);
+
+        return "redirect:/tasks/" + id;
     }
 }

@@ -12,4 +12,8 @@ public interface UserService {
     UserDto getOwnerByTaskId(int id);
 
     UserDto getExecutorByTaskId(int id);
+
+    List<UserDto> getOwners();
+
+    List<UserDto> getExecutors();
 }

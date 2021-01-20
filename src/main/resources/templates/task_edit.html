@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Менеджер задач</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 mb-5">
+
+    <h1>Редактировать Задачу</h1>
+
+    <form action="/tasks/edit" method="post">
+        <input type="hidden" name="id" th:value="${task.id}" class="form-control"><br>
+        <label for="name">Имя </label><input type="text" name="name" id="name" th:value="${task.name}" class="form-control"><br>
+        <label for="status">Статус </label><input type="text" name="status" id="status" th:value="${task.status}" class="form-control"><br>
+
+        <button type="submit" class="btn btn-success">Принять</button>
+    </form>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

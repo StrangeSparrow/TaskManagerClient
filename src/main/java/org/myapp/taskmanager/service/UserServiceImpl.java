@@ -35,4 +35,14 @@ public class UserServiceImpl implements UserService {
 
         return executor;
     }
+
+    @Override
+    public List<UserDto> getOwners() {
+        return userClient.getOwners();
+    }
+
+    @Override
+    public List<UserDto> getExecutors() {
+        return userClient.getExecutors();
+    }
 }

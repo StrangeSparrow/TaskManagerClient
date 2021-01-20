@@ -47,4 +47,9 @@ public class TaskServiceImpl implements TaskService {
     public void deleteById(int id) {
         taskClient.deleteById(id);
     }
+
+    @Override
+    public void updateTask(TaskDto task) {
+        taskClient.updateTask(task);
+    }
 }

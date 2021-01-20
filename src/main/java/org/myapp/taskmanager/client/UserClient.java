@@ -18,4 +18,10 @@ public interface UserClient {
 
     @RequestLine("GET/by-task/{id}/executor")
     UserDto getExecutorByTaskId(@Param("id") int id);
+
+    @RequestLine("GET/owners")
+    List<UserDto> getOwners();
+
+    @RequestLine("GET/executors")
+    List<UserDto> getExecutors();
 }

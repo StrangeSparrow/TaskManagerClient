@@ -29,4 +29,8 @@ public interface TaskClient {
 
     @RequestLine("DELETE/{id}")
     void deleteById(@Param("id") int id);
+
+    @RequestLine("PUT")
+    @Headers("Content-Type: application/json")
+    void updateTask(TaskDto task);
 }

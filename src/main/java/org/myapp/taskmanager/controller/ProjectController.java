@@ -46,8 +46,7 @@ public class ProjectController {
 
     @PostMapping("/add")
     public String addProject(@RequestParam("name") String name, Model model) {
-        ProjectDto project = ProjectDto.builder().build();
-        project.setName(name);
+        ProjectDto project = ProjectDto.builder().name(name).build();
 
         projectService.addProject(project);
 

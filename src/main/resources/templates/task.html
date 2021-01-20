@@ -33,8 +33,16 @@
     </table>
 
     <br>
-
-    <a th:href="@{'/tasks/' + ${task.id} + '/delete'}">Удалить задачу</a>
+    <div class="pricing-header text-center">
+        <table align="center" width="40%">
+            <td>
+                <a th:href="@{'/tasks/' + ${task.id} + '/edit'}">Редактировать задачу</a>
+            </td>
+            <td>
+                <a th:href="@{'/tasks/' + ${task.id} + '/delete'}">Удалить задачу</a>
+            </td>
+        </table>
+    </div>
 </div>
 
 <div th:insert="blocks/footer :: footer"></div>
