@@ -46,7 +46,7 @@ public class ProjectController {
 
     @PostMapping("/add")
     public String addProject(@RequestParam("name") String name, Model model) {
-        ProjectDto project = new ProjectDto();
+        ProjectDto project = ProjectDto.builder().build();
         project.setName(name);
 
         projectService.addProject(project);
@@ -59,5 +59,23 @@ public class ProjectController {
         projectService.deleteById(id);
 
         return "redirect:/projects";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String formEditProject(@PathVariable("id") int id, Model model) {
+        ProjectDto project = projectService.getProjectById(id);
+
+        model.addAttribute("project", project);
+
+        return "project_edit";
+    }
+
+    @PostMapping("/edit")
+    public String editProject(@RequestParam int id, @RequestParam String name) {
+        ProjectDto project = ProjectDto.builder().id(id).name(name).build();
+
+        projectService.updateProject(project);
+
+        return "redirect:/projects/" + id;
     }
 }

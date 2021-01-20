@@ -38,4 +38,9 @@ public class ProjectServiceImpl implements ProjectService {
     public void deleteById(int id) {
         projectClient.deleteById(id);
     }
+
+    @Override
+    public void updateProject(ProjectDto project) {
+        projectClient.updateProject(project);
+    }
 }

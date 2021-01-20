@@ -40,8 +40,16 @@
     </table>
 
     <br>
-
-    <a th:href="@{'/projects/' + ${project.id} + '/delete'}">Удалить проект</a>
+    <div class="pricing-header text-center">
+        <table align="center" width="40%">
+            <td>
+                <a th:href="@{'/projects/' + ${project.id} + '/edit'}">Редактировать проект</a>
+            </td>
+            <td>
+                <a th:href="@{'/projects/' + ${project.id} + '/delete'}">Удалить проект</a>
+            </td>
+        </table>
+    </div>
 </div>
 
 <div th:insert="blocks/footer :: footer"></div>
