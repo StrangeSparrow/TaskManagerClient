@@ -37,4 +37,14 @@ public class TaskServiceImpl implements TaskService {
 
         return tasks;
     }
+
+    @Override
+    public void addProject(TaskDto task) {
+        taskClient.addTask(task);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        taskClient.deleteById(id);
+    }
 }

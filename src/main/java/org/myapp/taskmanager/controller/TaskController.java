@@ -10,9 +10,7 @@ import org.myapp.taskmanager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -48,5 +46,28 @@ public class TaskController {
         model.addAttribute("project", project);
 
         return "task";
+    }
+
+    @GetMapping("/add")
+    public String formAddProject(Model model) {
+        return "task_add";
+    }
+
+    @PostMapping("/add")
+    public String addProject(@RequestParam("name") String name, Model model) {
+        TaskDto task = new TaskDto();
+        task.setName(name);
+        task.setStatus("start");
+
+        taskService.addProject(task);
+
+        return "redirect:/tasks";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String deleteProject(@PathVariable("id") int id) {
+        taskService.deleteById(id);
+
+        return "redirect:/tasks";
     }
 }

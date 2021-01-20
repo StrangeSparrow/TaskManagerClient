@@ -1,5 +1,6 @@
 package org.myapp.taskmanager.client;
 
+import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
 import org.myapp.taskmanager.dto.TaskDto;
@@ -21,4 +22,11 @@ public interface TaskClient {
 
     @RequestLine("GET/by-project/{id}")
     List<TaskDto> findByProjectId(@Param("id") int projectId);
+
+    @RequestLine("POST")
+    @Headers("Content-Type: application/json")
+    void addTask(TaskDto task);
+
+    @RequestLine("DELETE/{id}")
+    void deleteById(@Param("id") int id);
 }

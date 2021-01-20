@@ -12,4 +12,8 @@ public interface TaskService {
     List<TaskDto> getTaskByUserId(int userId);
 
     List<TaskDto> getTaskByProjectId(int projectId);
+
+    void addProject(TaskDto task);
+
+    void deleteById(int id);
 }

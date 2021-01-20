@@ -44,8 +44,6 @@ public class ProjectController {
         return "project_add";
     }
 
-    //TODO
-
     @PostMapping("/add")
     public String addProject(@RequestParam("name") String name, Model model) {
         ProjectDto project = new ProjectDto();
