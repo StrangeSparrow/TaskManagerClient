@@ -87,8 +87,14 @@ public class TaskController {
     }
 
     @PostMapping("/edit")
-    public String editProject(@RequestParam int id, @RequestParam String name, @RequestParam String status) {
-        TaskDto task = TaskDto.builder().id(id).name(name).status(status).build();
+    public String editProject(@RequestParam int id,
+                              @RequestParam String name,
+                              @RequestParam String status,
+                              @RequestParam int owner,
+                              @RequestParam int executor,
+                              @RequestParam int project) {
+
+        TaskDto task = TaskDto.builder().id(id).name(name).status(status).owner(owner).executor(executor).project(project).build();
 
         taskService.updateTask(task);
 

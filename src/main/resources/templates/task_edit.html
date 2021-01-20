@@ -14,10 +14,23 @@
     <h1>Редактировать Задачу</h1>
 
     <form action="/tasks/edit" method="post">
-        <input type="hidden" name="id" th:value="${task.id}" class="form-control"><br>
-        <label for="name">Имя </label><input type="text" name="name" id="name" th:value="${task.name}" class="form-control"><br>
-        <label for="status">Статус </label><input type="text" name="status" id="status" th:value="${task.status}" class="form-control"><br>
+        <input type="hidden" name="id" th:value="${task.id}" class="form-control">
+        <label for="name">Имя </label><input type="text" name="name" id="name" th:value="${task.name}" class="form-control">
+        <label for="status">Статус </label><input type="text" name="status" id="status" th:value="${task.status}" class="form-control">
+        <label for="owner">Заказчик </label><br>
+        <select id="owner" name="owner" style="width:200px">
+            <option th:each="o : ${owners}" th:value="${o.id}" th:text="${o.name}"></option>
+        </select><br>
+        <label for="executor">Исполнитель </label><br>
+        <select id="executor" name="executor" style="width:200px">
+            <option th:each="e : ${executors}" th:value="${e.id}" th:text="${e.name}"></option>
+        </select><br>
+        <label for="project">Проект </label><br>
+        <select id="project" name="project" style="width:200px">
+            <option th:each="p : ${projects}" th:value="${p.id}" th:text="${p.name}"></option>
+        </select><br>
 
+        <br>
         <button type="submit" class="btn btn-success">Принять</button>
     </form>
 </div>
