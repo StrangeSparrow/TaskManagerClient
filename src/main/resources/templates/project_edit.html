@@ -13,8 +13,8 @@
 
     <h1>Редактировать Проект</h1>
 
-    <form action="/projects/edit" method="post">
-        <input type="text" name="name" th:value="${project.name}" class="form-control"><br>
+    <form action="/projects/edit" method="post" th:object="${project}">
+        <input type="text" name="name" th:value="${project.name}" class="form-control" th:field="*{name}"><br>
         <input type="hidden" name="id" th:value="${project.id}" class="form-control"><br>
         <button type="submit" class="btn btn-success">Принять</button>
     </form>

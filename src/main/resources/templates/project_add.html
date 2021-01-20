@@ -13,8 +13,8 @@
 
     <h1>Добавить Проект</h1>
 
-    <form action="/projects/add" method="post">
-        <input type="text" name="name" placeholder="Название проекта" class="form-control"><br>
+    <form action="/projects/add" method="post" th:object="${project}">
+        <input type="text" th:field="*{name}" placeholder="Название проекта" class="form-control"><br>
         <button type="submit" class="btn btn-success">Добавить проект</button>
     </form>
 </div>

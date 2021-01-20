@@ -41,12 +41,13 @@ public class ProjectController {
 
     @GetMapping("/add")
     public String formAddProject(Model model) {
+        model.addAttribute("project", new ProjectDto());
+
         return "project_add";
     }
 
     @PostMapping("/add")
-    public String addProject(@RequestParam("name") String name, Model model) {
-        ProjectDto project = ProjectDto.builder().name(name).build();
+    public String addProject(@ModelAttribute(name = "project") ProjectDto project, Model model) {
 
         projectService.addProject(project);
 
@@ -70,11 +71,10 @@ public class ProjectController {
     }
 
     @PostMapping("/edit")
-    public String editProject(@RequestParam int id, @RequestParam String name) {
-        ProjectDto project = ProjectDto.builder().id(id).name(name).build();
+    public String editProject(@ModelAttribute ProjectDto project) {
 
         projectService.updateProject(project);
 
-        return "redirect:/projects/" + id;
+        return "redirect:/projects/" + project.getId();
     }
 }

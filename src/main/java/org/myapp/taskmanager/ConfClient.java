@@ -8,6 +8,7 @@ import feign.okhttp.OkHttpClient;
 import feign.slf4j.Slf4jLogger;
 import org.myapp.taskmanager.client.ProjectClient;
 import org.myapp.taskmanager.client.TaskClient;
+import org.myapp.taskmanager.client.TaskTimeClient;
 import org.myapp.taskmanager.client.UserClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -45,5 +46,16 @@ public class ConfClient {
                 .logger(new Slf4jLogger(ProjectClient.class))
                 .logLevel(Logger.Level.FULL)
                 .target(ProjectClient.class, "http://localhost:8080/projects");
+    }
+
+    @Bean
+    public TaskTimeClient taskTimeClient() {
+        return Feign.builder()
+                .client(new OkHttpClient())
+                .encoder(new GsonEncoder())
+                .decoder(new GsonDecoder())
+                .logger(new Slf4jLogger(TaskTimeClient.class))
+                .logLevel(Logger.Level.FULL)
+                .target(TaskTimeClient.class, "http://localhost:8080/time");
     }
 }
