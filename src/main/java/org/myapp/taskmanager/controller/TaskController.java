@@ -7,7 +7,6 @@ import org.myapp.taskmanager.dto.UserDto;
 import org.myapp.taskmanager.service.ProjectService;
 import org.myapp.taskmanager.service.TaskService;
 import org.myapp.taskmanager.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +17,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/tasks")
 public class TaskController {
-    private TaskService taskService;
-    private UserService userService;
-    private ProjectService projectService;
+    private final TaskService taskService;
+    private final UserService userService;
+    private final ProjectService projectService;
 
     @GetMapping
     public String getTasks(Model model) {
@@ -50,14 +49,15 @@ public class TaskController {
 
     @GetMapping("/add")
     public String formAddProject(Model model) {
+        model.addAttribute("task", new TaskDto());
+
         return "task_add";
     }
 
     @PostMapping("/add")
-    public String addProject(@RequestParam("name") String name, Model model) {
-        TaskDto task = TaskDto.builder().name(name).status("start").build();
-
-        taskService.addProject(task);
+    public String addProject(@ModelAttribute TaskDto task, Model model) {
+        task.setStatus("start");
+        taskService.addTask(task);
 
         return "redirect:/tasks";
     }
@@ -87,17 +87,12 @@ public class TaskController {
     }
 
     @PostMapping("/edit")
-    public String editProject(@RequestParam int id,
-                              @RequestParam String name,
-                              @RequestParam String status,
-                              @RequestParam int owner,
-                              @RequestParam int executor,
-                              @RequestParam int project) {
+    public String editProject(@ModelAttribute TaskDto task) {
 
-        TaskDto task = TaskDto.builder().id(id).name(name).status(status).owner(owner).executor(executor).project(project).build();
+//        TaskDto task = TaskDto.builder().id(id).name(name).status(status).owner(owner).executor(executor).project(project).build();
 
         taskService.updateTask(task);
 
-        return "redirect:/tasks/" + id;
+        return "redirect:/tasks/" + task.getId();
     }
 }

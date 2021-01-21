@@ -39,7 +39,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public void addProject(TaskDto task) {
+    public void addTask(TaskDto task) {
         taskClient.addTask(task);
     }
 

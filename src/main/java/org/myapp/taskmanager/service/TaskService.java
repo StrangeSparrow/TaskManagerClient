@@ -13,7 +13,7 @@ public interface TaskService {
 
     List<TaskDto> getTaskByProjectId(int projectId);
 
-    void addProject(TaskDto task);
+    void addTask(TaskDto task);
 
     void deleteById(int id);
 

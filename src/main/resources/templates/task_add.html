@@ -13,8 +13,8 @@
 
     <h1>Добавить Задачу</h1>
 
-    <form action="/tasks/add" method="post">
-        <input type="text" name="name" placeholder="Название проекта" class="form-control"><br>
+    <form action="/tasks/add" method="post" th:object="${task}">
+        <input type="text" name="name" placeholder="Название проекта" class="form-control" th:field="*{name}"><br>
         <button type="submit" class="btn btn-success">Добавить задачу</button>
     </form>
 </div>

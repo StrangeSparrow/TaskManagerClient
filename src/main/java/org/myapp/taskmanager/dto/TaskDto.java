@@ -1,12 +1,12 @@
 package org.myapp.taskmanager.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class TaskDto {
     private int id;
     private String name;
