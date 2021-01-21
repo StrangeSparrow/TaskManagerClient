@@ -51,11 +51,15 @@
             <th>№</th>
             <th>Дата</th>
             <th>Время</th>
+            <th></th>
         </tr>
         <tr th:each ="t : ${time}">
             <td th:utext="${t.id}">...</td>
             <td th:utext="${t.data}">...</td>
             <td th:utext="${t.hours}">...</td>
+            <td>
+                <a th:href="@{'/time/' + ${t.id} + '/delete'}">Удалить</a>
+            </td>
         </tr>
     </table>
 

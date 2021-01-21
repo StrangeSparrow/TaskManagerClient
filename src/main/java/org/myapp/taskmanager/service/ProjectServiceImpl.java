@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class ProjectServiceImpl implements ProjectService {
-    private ProjectClient projectClient;
+    private final ProjectClient projectClient;
 
     @Override
     public List<ProjectDto> getAllProjects() {

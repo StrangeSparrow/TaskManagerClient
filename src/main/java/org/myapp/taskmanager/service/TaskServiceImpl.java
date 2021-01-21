@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class TaskServiceImpl implements TaskService {
-    private TaskClient taskClient;
+    private final TaskClient taskClient;
 
     @Override
     public List<TaskDto> getAllTasks() {

@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
-    private UserClient userClient;
+    private final UserClient userClient;
 
     @Override
     public List<UserDto> getAllUsers() {

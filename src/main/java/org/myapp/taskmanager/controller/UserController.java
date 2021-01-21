@@ -17,8 +17,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/users")
 public class UserController {
-    private UserService userService;
-    private TaskService taskService;
+    private final UserService userService;
+    private final TaskService taskService;
 
     @GetMapping
     public String getUsers(Model model) {

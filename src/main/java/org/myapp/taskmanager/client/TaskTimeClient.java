@@ -21,4 +21,7 @@ public interface TaskTimeClient {
     @RequestLine("POST")
     @Headers(AppConst.JSON_TYPE)
     void addTime(TaskTimeDto time);
+
+    @RequestLine("DELETE/{id}")
+    void deleteTimeById(@Param("id") int id);
 }

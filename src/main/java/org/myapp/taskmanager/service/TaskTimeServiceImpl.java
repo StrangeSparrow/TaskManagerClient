@@ -24,7 +24,7 @@ public class TaskTimeServiceImpl implements TaskTimeService {
 
     @Override
     public void deleteTimeById(int id) {
-
+        client.deleteTimeById(id);
     }
 
     @Override

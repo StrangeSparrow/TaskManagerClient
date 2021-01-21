@@ -15,8 +15,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/projects")
 public class ProjectController {
-    private ProjectService projectService;
-    private TaskService taskService;
+    private final ProjectService projectService;
+    private final TaskService taskService;
 
     @GetMapping
     public String getProjects(Model model) {

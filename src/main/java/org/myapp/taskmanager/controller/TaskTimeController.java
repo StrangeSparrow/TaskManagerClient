@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import org.myapp.taskmanager.dto.TaskTimeDto;
 import org.myapp.taskmanager.service.TaskTimeService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
 @Controller
@@ -19,5 +17,12 @@ public class TaskTimeController {
         service.addTime(time);
 
         return "redirect:/tasks/" + time.getTask();
+    }
+
+    @GetMapping("/{id}/delete")
+    public String deleteTimeById(@PathVariable("id") int id, @RequestHeader(name = "Referer") String ref) {
+        service.deleteTimeById(id);
+
+        return "redirect:/" + ref.substring(ref.lastIndexOf("tasks"));
     }
 }
