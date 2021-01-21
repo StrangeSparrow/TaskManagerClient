@@ -23,7 +23,7 @@ public class ConfClient {
                 .decoder(new GsonDecoder())
                 .logger(new Slf4jLogger(TaskClient.class))
                 .logLevel(Logger.Level.FULL)
-                .target(TaskClient.class, "http://localhost:8080/tasks");
+                .target(TaskClient.class, AppConst.REF_TASK);
     }
 
     @Bean
@@ -34,7 +34,7 @@ public class ConfClient {
                 .decoder(new GsonDecoder())
                 .logger(new Slf4jLogger(UserClient.class))
                 .logLevel(Logger.Level.FULL)
-                .target(UserClient.class, "http://localhost:8080/users");
+                .target(UserClient.class, AppConst.REF_USER);
     }
 
     @Bean
@@ -45,7 +45,7 @@ public class ConfClient {
                 .decoder(new GsonDecoder())
                 .logger(new Slf4jLogger(ProjectClient.class))
                 .logLevel(Logger.Level.FULL)
-                .target(ProjectClient.class, "http://localhost:8080/projects");
+                .target(ProjectClient.class, AppConst.REF_PROJECT);
     }
 
     @Bean
@@ -56,6 +56,6 @@ public class ConfClient {
                 .decoder(new GsonDecoder())
                 .logger(new Slf4jLogger(TaskTimeClient.class))
                 .logLevel(Logger.Level.FULL)
-                .target(TaskTimeClient.class, "http://localhost:8080/time");
+                .target(TaskTimeClient.class, AppConst.REF_TIME);
     }
 }

@@ -3,6 +3,7 @@ package org.myapp.taskmanager.client;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
+import org.myapp.taskmanager.AppConst;
 import org.myapp.taskmanager.dto.ProjectDto;
 
 import java.util.List;
@@ -18,13 +19,13 @@ public interface ProjectClient {
     ProjectDto findProjectByTaskId(@Param("id") int id);
 
     @RequestLine("POST")
-    @Headers("Content-Type: application/json")
+    @Headers(AppConst.JSON_TYPE)
     void addProject(ProjectDto project);
 
     @RequestLine("DELETE/{id}")
     void deleteById(@Param("id") int id);
 
     @RequestLine("PUT")
-    @Headers("Content-Type: application/json")
+    @Headers(AppConst.JSON_TYPE)
     void updateProject(ProjectDto project);
 }
