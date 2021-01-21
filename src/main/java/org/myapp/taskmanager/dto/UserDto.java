@@ -10,5 +10,9 @@ import lombok.Setter;
 public class UserDto {
     private Integer id;
     private String name;
-    private String role;
+    private Role role;
+
+    public enum Role {
+        admin, manager, executor;
+    }
 }

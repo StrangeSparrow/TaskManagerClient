@@ -14,4 +14,8 @@ public class TaskDto {
     private Integer owner;
     private Integer executor;
     private Integer project;
+
+    public enum Status {
+        start, execute, finish;
+    }
 }
