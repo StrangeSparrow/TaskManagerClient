@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Менеджер задач</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+
+    <h1 class="display-4">Задача</h1>
+
+    <table border="1" align="center" width="60%">
+        <tr>
+            <th>№</th>
+            <th>Имя</th>
+            <th>Статус</th>
+            <th>Заказчик</th>
+            <th>Исполнитель</th>
+            <th>Проект</th>
+        </tr>
+        <tr>
+            <td th:utext="${task.id}">...</td>
+            <td><a th:href="@{'/tasks/' + ${task.id}}" th:utext="${task.name}"></a></td>
+            <td th:utext="${task.status}">...</td>
+            <td><a th:href="@{'/users/' + ${owner.id}}" th:utext="${owner.name}"></a></td>
+            <td><a th:href="@{'/users/' + ${executor.id}}" th:utext="${executor.name}"></a></td>
+            <td><a th:href="@{'/projects/' + ${project.id}}" th:utext="${project.name}"></a></td>
+        </tr>
+    </table>
+
+    <br>
+    <div class="pricing-header text-center">
+        <table align="center" width="40%">
+            <td>
+                <a th:href="@{'/tasks/' + ${task.id} + '/edit'}">Редактировать задачу</a>
+            </td>
+            <td>
+                <a th:href="@{'/tasks/' + ${task.id} + '/delete'}">Удалить задачу</a>
+            </td>
+        </table>
+    </div>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

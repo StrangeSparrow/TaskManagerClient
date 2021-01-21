@@ -8,7 +8,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class UserDto {
-    private int id;
+    private Integer id;
     private String name;
-    private String role;
+    private Role role;
+
+    public enum Role {
+        admin, manager, executor;
+    }
 }

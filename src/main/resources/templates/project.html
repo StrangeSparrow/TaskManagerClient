@@ -11,19 +11,17 @@
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 
-    <h1 class="display-4">Пользователь</h1>
+    <h1 class="display-4">Проект</h1>
 
     <table border="1" align="center" width="40%">
         <tr>
             <th>№</th>
             <th>Имя</th>
-            <th>Права</th>
             <th>Задачи</th>
         </tr>
         <tr>
-            <td th:utext="${user.id}" align="top">...</td>
-            <td align="top"><a th:href="@{'/users/' + ${user.id}}" th:utext="${user.name}"></a></td>
-            <td th:utext="${user.role}">...</td>
+            <td th:utext="${project.id}">...</td>
+            <td><a th:href="@{'/projects/' + ${project.id}}" th:utext="${project.name}"></a></td>
             <td>
                 <table align="center" width="95%">
                     <tr>
@@ -40,6 +38,18 @@
             </td>
         </tr>
     </table>
+
+    <br>
+    <div class="pricing-header text-center">
+        <table align="center" width="40%">
+            <td>
+                <a th:href="@{'/projects/' + ${project.id} + '/edit'}">Редактировать проект</a>
+            </td>
+            <td>
+                <a th:href="@{'/projects/' + ${project.id} + '/delete'}">Удалить проект</a>
+            </td>
+        </table>
+    </div>
 </div>
 
 <div th:insert="blocks/footer :: footer"></div>

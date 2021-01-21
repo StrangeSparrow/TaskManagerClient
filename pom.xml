@@ -11,6 +11,7 @@
     <properties>
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
+        <feign>10.11</feign>
     </properties>
 
     <parent>
@@ -24,17 +25,17 @@
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-okhttp</artifactId>
-            <version>10.11</version>
+            <version>${feign}</version>
         </dependency>
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-gson</artifactId>
-            <version>10.11</version>
+            <version>${feign}</version>
         </dependency>
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-slf4j</artifactId>
-            <version>10.11</version>
+            <version>${feign}</version>
         </dependency>
 
         <dependency>
