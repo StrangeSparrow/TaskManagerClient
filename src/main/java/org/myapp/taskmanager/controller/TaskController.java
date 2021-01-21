@@ -44,12 +44,17 @@ public class TaskController {
 
         List<TaskTimeDto> time = taskTimeService.getByTaskId(task.getId());
 
+        TaskTimeDto taskTime = TaskTimeDto.builder()
+                .task(task.getId())
+                .user(executor.getId())
+                .build();
+
         model.addAttribute("task", task);
         model.addAttribute("owner", owner);
         model.addAttribute("executor", executor);
         model.addAttribute("project", project);
         model.addAttribute("time", time);
-        model.addAttribute("taskTime", new TaskTimeDto());
+        model.addAttribute("taskTime", taskTime);
 
         return "task";
     }

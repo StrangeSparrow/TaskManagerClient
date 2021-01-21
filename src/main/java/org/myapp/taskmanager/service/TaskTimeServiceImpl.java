@@ -29,7 +29,7 @@ public class TaskTimeServiceImpl implements TaskTimeService {
 
     @Override
     public void addTime(TaskTimeDto time) {
-
+        client.addTime(time);
     }
 
     @Override

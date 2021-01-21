@@ -67,6 +67,9 @@
         <form action="/time/add" method="post" th:object="${taskTime}">
             <label>Время <input type="number" min="1" max="8" name="hours" class="form-control" th:field="*{hours}"></label>
             <label>Дата <input type="date" name="date" class="form-control" th:field="*{data}"></label><br>
+            <input type="hidden" th:field="*{user}" th:value="${taskTime.user}">
+            <input type="hidden" th:field="*{task}" th:value="${taskTime.task}">
+
             <button type="submit" class="btn btn-success">Добавить</button>
         </form>
     </div>
