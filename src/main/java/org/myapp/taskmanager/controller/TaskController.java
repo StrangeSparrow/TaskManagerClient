@@ -49,6 +49,7 @@ public class TaskController {
         model.addAttribute("executor", executor);
         model.addAttribute("project", project);
         model.addAttribute("time", time);
+        model.addAttribute("taskTime", new TaskTimeDto());
 
         return "task";
     }
