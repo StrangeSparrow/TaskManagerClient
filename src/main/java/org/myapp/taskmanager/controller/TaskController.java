@@ -3,9 +3,11 @@ package org.myapp.taskmanager.controller;
 import lombok.AllArgsConstructor;
 import org.myapp.taskmanager.dto.ProjectDto;
 import org.myapp.taskmanager.dto.TaskDto;
+import org.myapp.taskmanager.dto.TaskTimeDto;
 import org.myapp.taskmanager.dto.UserDto;
 import org.myapp.taskmanager.service.ProjectService;
 import org.myapp.taskmanager.service.TaskService;
+import org.myapp.taskmanager.service.TaskTimeService;
 import org.myapp.taskmanager.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,7 @@ public class TaskController {
     private final TaskService taskService;
     private final UserService userService;
     private final ProjectService projectService;
+    private final TaskTimeService taskTimeService;
 
     @GetMapping
     public String getTasks(Model model) {
@@ -39,10 +42,13 @@ public class TaskController {
 
         ProjectDto project = projectService.getProjectByTaskId(task.getId());
 
+        List<TaskTimeDto> time = taskTimeService.getByTaskId(task.getId());
+
         model.addAttribute("task", task);
         model.addAttribute("owner", owner);
         model.addAttribute("executor", executor);
         model.addAttribute("project", project);
+        model.addAttribute("time", time);
 
         return "task";
     }

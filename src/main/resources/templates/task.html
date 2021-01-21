@@ -43,6 +43,22 @@
             </td>
         </table>
     </div>
+
+    <hr class="pt-4 my-md-4 pt-md-4">
+
+    <table border="1" align="center" width="60%">
+        <tr>
+            <th>№</th>
+            <th>Дата</th>
+            <th>Время</th>
+        </tr>
+        <tr th:each ="t : ${time}">
+            <td th:utext="${t.id}">...</td>
+            <td th:utext="${t.data}">...</td>
+            <td th:utext="${t.hours}">...</td>
+        </tr>
+    </table>
+    
 </div>
 
 <div th:insert="blocks/footer :: footer"></div>
