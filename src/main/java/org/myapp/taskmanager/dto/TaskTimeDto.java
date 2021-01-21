@@ -8,9 +8,9 @@ import lombok.Setter;
 @Setter
 @Builder
 public class TaskTimeDto {
-    private int id;
-    private int hours;
+    private Integer id;
+    private Integer hours;
     private String data;
-    private int user;
-    private int task;
+    private Integer user;
+    private Integer task;
 }
