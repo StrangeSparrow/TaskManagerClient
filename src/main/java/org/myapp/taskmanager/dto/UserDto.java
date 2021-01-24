@@ -13,6 +13,6 @@ public class UserDto {
     private Role role;
 
     public enum Role {
-        admin, manager, executor
+        ADMIN, MANAGER, EXECUTOR
     }
 }
